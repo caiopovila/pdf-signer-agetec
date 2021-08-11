@@ -88,8 +88,11 @@ const getCertificate = (
     const rawCertificate: forge.pki.Certificate = certBags[index].cert as forge.pki.Certificate
 
     p7.addCertificate(rawCertificate)
-
-    certificate = getValidatedCertificate(privateKey, publicKey, rawCertificate)
+    let validatedCertificate: forge.pki.Certificate | undefined = getValidatedCertificate(privateKey, publicKey, rawCertificate);
+    if (validatedCertificate) {
+      certificate = validatedCertificate;
+    }
+    
   })
 
   if (!certificate) {
@@ -134,11 +137,12 @@ const getValidatedCertificate = (
   rawCertificate: forge.pki.Certificate,
 ): forge.pki.Certificate | undefined => {
   let validatedCertificate: forge.pki.Certificate | undefined = undefined
-
+  const isPrivateKeyModulusSameAsPublicKeyModulus =
+    (privateKey as any).n.compareTo((publicKey as any).n) === 0
   const isPrivateKeyExponentSameAsPublicKeyExponent =
     (privateKey as any).e.compareTo((publicKey as any).e) === 0
 
-  if (isPrivateKeyExponentSameAsPublicKeyExponent) {
+  if (isPrivateKeyModulusSameAsPublicKeyModulus && isPrivateKeyExponentSameAsPublicKeyExponent) {
     validatedCertificate = rawCertificate
   }
 
