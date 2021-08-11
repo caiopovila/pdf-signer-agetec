@@ -2,7 +2,7 @@
 
 A JavaScript PDF signer with certificate CPF and CNPJ A1 ICP-Brasil for NodeJS. 
 
-This package is fork of [vizicsaba89/pdf-signer](https://github.com/vizicsaba89/pdf-signer).
+This package is fork of [willmdrs/pdf-signer-brazil](https://github.com/willmdrs/pdf-signer-brazil).
 
 ## PDF versions
 Pdf-signer cant handle pdf stream in the moment. It only can works with pdf which built on XREF tables. 

@@ -135,12 +135,10 @@ const getValidatedCertificate = (
 ): forge.pki.Certificate | undefined => {
   let validatedCertificate: forge.pki.Certificate | undefined = undefined
 
-  const isPrivateKeyModulusSameAsPublicKeyModulus =
-    (privateKey as any).n.compareTo((publicKey as any).n) === 0
   const isPrivateKeyExponentSameAsPublicKeyExponent =
     (privateKey as any).e.compareTo((publicKey as any).e) === 0
 
-  if (isPrivateKeyModulusSameAsPublicKeyModulus && isPrivateKeyExponentSameAsPublicKeyExponent) {
+  if (isPrivateKeyExponentSameAsPublicKeyExponent) {
     validatedCertificate = rawCertificate
   }
 
