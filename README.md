@@ -1,8 +1,8 @@
-# PDF signer Brazil
+# PDF signer AGETEC
 
 A JavaScript PDF signer with certificate CPF and CNPJ A1 ICP-Brasil for NodeJS. 
 
-This package is fork of [willmdrs/pdf-signer-brazil](https://github.com/willmdrs/pdf-signer-brazil).
+This package is fork of [willmdrs/pdf-signer-agetec](https://github.com/willmdrs/pdf-signer-agetec).
 
 ## PDF versions
 Pdf-signer cant handle pdf stream in the moment. It only can works with pdf which built on XREF tables. 
@@ -13,14 +13,14 @@ Pdf-signer cant handle pdf stream in the moment. It only can works with pdf whic
 Installation uses the npm package manager. Just type the following command after installing npm.
 
 ```bash
-npm install pdf-signer-brazil
+npm install pdf-signer-agetec
 ```
 
 ## Usage
 
 single signing example:
 ```javascript
-import { sign } from 'pdf-signer-brazil'
+import { sign } from 'pdf-signer-agetec'
 const fs = require('fs')
 const dateFormat = require("dateformat")
 
@@ -62,7 +62,7 @@ const signedPdf = sign.sign(pdfBuffer, p12Buffer, password, {
 })
 signedPdf.then(content => fs.writeFileSync('./assets/results/signed.pdf', content))
 ```
-More examples can be found in spec file [spec](https://github.com/willmdrs/pdf-signer-brazil/blob/master/src/sign.spec.ts).
+More examples can be found in spec file [spec](https://github.com/willmdrs/pdf-signer-agetec/blob/master/src/sign.spec.ts).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
