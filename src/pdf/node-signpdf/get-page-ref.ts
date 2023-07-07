@@ -26,7 +26,7 @@ const getPageRef = (pdf: Buffer, info: any, annotationOnPage: number = 0) => {
     }
   });
 
-  pageIndexList = pageIndexList.sort((a, b) => a - b);
+  pageIndexList = pageIndexList.sort((a: any, b: any) => a - b);
   return `${pageIndexList[annotationOnPage]} 0 R`.trim()
 }
 
