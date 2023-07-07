@@ -20,7 +20,8 @@
     "build": "rimraf dist && tsc",
     "publish:patch": "npm version patch && npm run build && npm publish",
     "publish:major": "npm version major && npm run build && npm publish",
-    "publish:minor": "npm version minor && npm run build && npm publish"
+    "publish:minor": "npm version minor && npm run build && npm publish",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
