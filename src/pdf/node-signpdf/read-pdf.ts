@@ -41,7 +41,7 @@ const readRefTable = (pdf: Buffer) => {
 
   let maxOffset = 0
 
-  const maxIndex = Object.keys(fullXrefTable).length - 1
+  const maxIndex = Math.max.apply(null, Object.keys(fullXrefTable).map(Number))
 
   Object.keys(fullXrefTable).forEach(id => {
     const offset = parseInt(fullXrefTable[id])
