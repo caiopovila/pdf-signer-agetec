@@ -20,6 +20,7 @@ const getPageRef = (pdf: Buffer, info: any, annotationOnPage: number = 0) => {
       const pages2 = ob.slice(kidsStart2, kidsEnd2).toString();
       const pageIndexList2 = pages2.replace(/\s+/g, '').split('0R').filter((p) => p !== '');
       pageIndexList = [...pageIndexList2, ...pageIndexList.filter(e => e !== element)];
+      index = -1;
     }
   }
 
