@@ -8,7 +8,7 @@ const getPageRef = (pdf: Buffer, info: any, annotationOnPage: number = 0) => {
   const kidsStart = pagesDictionary.indexOf('[', kidsPosition) + 1
   const kidsEnd = pagesDictionary.indexOf(']', kidsPosition)
   const pages = pagesDictionary.slice(kidsStart, kidsEnd).toString()
-  let pageIndexList = pages.split('0 R').filter((p) => p !== '')
+  let pageIndexList = pages.replace(/\s+/g, '').split('0R').filter((p) => p !== '');
 
   pageIndexList.forEach((element: any) => {
     const ob = findObject(pdf, info.xref, `${element} 0 R`.trim());
